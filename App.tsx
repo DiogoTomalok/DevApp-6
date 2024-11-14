@@ -1,16 +1,19 @@
-// App.tsx
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack';
-// @ts-ignore
+// @ts-ignore(Por algum motivo não funciona se eu tirar esse comentario(Porque(Não faço ideia gepeto que me ajudo com essa merda)))
 import BottomMenu from './DevApp/BottomMenu';
 
-import PaginaTeste1 from './DevApp/PaginaTeste1'; // Importa a página de destino
+
+
+import PaginaTeste1 from './DevApp/PaginaTeste1'; //página de destino
+import Pagina2 from './DevApp/Pagina2';
 
 // Define a lista de parâmetros para as rotas, necessária para o TypeScript
 type RootStackParamList = {
   Home: undefined;
   PaginaTeste1: undefined;
+  Pagina2: undefined;
 };
 
 // Define o tipo de navegação para HomeScreen
@@ -18,7 +21,7 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'H
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export default function App() {
+export default function App() {/* navegação de paginas, atualmente so esta funcionado o buscar que leva ate a pagina de teste 1 */
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -30,7 +33,12 @@ export default function App() {
         <Stack.Screen 
           name="PaginaTeste1" 
           component={PaginaTeste1} 
-          options={{ title: 'Página de Teste 1' }} 
+          options={{ title: 'PáginaTeste' }} //
+        />
+        <Stack.Screen 
+          name="Pagina2" 
+          component={Pagina2} 
+          options={{ title: 'Página2' }} //
         />
       </Stack.Navigator>
     </NavigationContainer>

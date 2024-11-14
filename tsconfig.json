@@ -10,3 +10,4 @@
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
   
 }
+//Ta com warning e não consegui resolver, busque na net e gepeto e não sei , mas ta funcionado

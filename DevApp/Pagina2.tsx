@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const PaginaApp = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Alguma coisa!</Text>
+      <Text style={styles.text}>Alguma coisa2!</Text>
     </View>
   );
 };

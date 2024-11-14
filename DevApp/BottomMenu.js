@@ -14,12 +14,12 @@ export default function BottomMenu({ navigation }) {
 
       <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('PaginaTeste1')}>
         <Icon name="search" size={24} color="#fff" />
-        <Text style={styles.menuText}>Buscar</Text>
+        <Text style={styles.menuText}>Teste</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.menuItem}>
-        <Icon name="library-music" size={24} color="#fff" />
-        <Text style={styles.menuText}>Sua Biblioteca</Text>
+      <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Pagina2')}>
+        <Icon name="Pagina2" size={24} color="#fff" /> //pagina dois ainda não ta funcionado como deveria
+        <Text style={styles.menuText}>Pagina2</Text>
       </TouchableOpacity>
     </View>
   );
