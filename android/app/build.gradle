@@ -1,7 +1,9 @@
-apply plugin: "com.android.application"
-apply plugin: "org.jetbrains.kotlin.android"
-apply plugin: "com.facebook.react"
-
+plugins {
+    id 'com.android.application'           // Aplica o plugin para Android
+    id 'org.jetbrains.kotlin.android'      // Aplica o plugin para Kotlin
+    id 'com.facebook.react'                // Aplica o plugin do React Native
+    id 'com.google.gms.google-services'    // Aplica o plugin para Firebase
+}
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -108,12 +110,27 @@ android {
 }
 
 dependencies {
-    // The version of react-native is set by the React Native Gradle Plugin
+    // A versão do React Native é definida pelo plugin Gradle do React Native
     implementation("com.facebook.react:react-android")
 
+    // Verifica se o Hermes está habilitado, se sim, usa a implementação do Hermes
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
+        // Caso contrário, usa o JSC (JavaScriptCore)
         implementation jscFlavor
     }
+
+    // Importa o BoM do Firebase (Bill of Materials), garantindo versões compatíveis para as bibliotecas do Firebase
+    implementation platform('com.google.firebase:firebase-bom:33.6.0')
+
+    // Dependências específicas do Firebase que você deseja usar
+    implementation 'com.google.firebase:firebase-analytics'  // Exemplo com o Firebase Analytics
+
+    // Adicione outras dependências do Firebase conforme necessário
+    // Exemplo para Firebase Authentication:
+    // implementation 'com.google.firebase:firebase-auth'
+    // Exemplo para Firebase Firestore:
+    // implementation 'com.google.firebase:firebase-firestore'
 }
+

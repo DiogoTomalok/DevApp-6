@@ -1,0 +1,18 @@
+├── android/
+├── ios/
+├── src/
+│   ├── components/
+│   │   └── BottomMenu.tsx
+│   ├── navigation/
+│   │   └── AppNavigator.tsx
+│   ├── pages/
+│   │   ├── PaginaTeste1.tsx
+│   │   ├── Pagina2.tsx
+│   │   └── Pagina2_2.tsx
+│   │   └── Pagina2detail.tsx
+│   ├── services/
+│   │   └── FirestoreService.tsx
+|── App.tsx
+├── package.json
+├── tsconfig.json
+├── index.js
