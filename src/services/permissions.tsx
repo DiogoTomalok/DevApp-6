@@ -1,11 +1,11 @@
-// src/services/permissions.tsx
+
 import { PermissionsAndroid, Platform, Alert } from 'react-native';
 
-// Função para solicitar permissões no Android
+
 export const requestPermissions = async () => {
   if (Platform.OS === 'android') {
     try {
-      // Solicita permissão para gravar no armazenamento externo
+ 
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
         {

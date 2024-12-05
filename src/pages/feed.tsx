@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ImageBackgr
 import { StackNavigationProp } from '@react-navigation/stack';  // Importando para tipagem de navegação
 import { adicionarDocumento } from '../services/FirestoreService'; // Função para adicionar no Firestore
 
-// Definir o tipo de navegação com base nas telas disponíveis
+
 type FeedbackScreenNavigationProp = StackNavigationProp<
   { 
     Home: undefined; 
@@ -31,7 +31,7 @@ const Feedback: React.FC<FeedbackProps> = ({ navigation }) => {
     try {
       await adicionarDocumento('feedback', { campo1, campo2, timestamp: new Date() });
       Alert.alert('Agradecemos Seu Feedback!!!');
-      setCampo1(''); // Limpa os campos
+      setCampo1(''); 
       setCampo2('');
     } catch (error) {
       console.error('Erro ao enviar feedback: ', error);
@@ -41,7 +41,7 @@ const Feedback: React.FC<FeedbackProps> = ({ navigation }) => {
 
   return (
     <ImageBackground
-      source={require('../img/img.jpg')} // Substitua pelo caminho correto da imagem
+      source={require('../img/img.jpg')} 
       style={styles.backgroundImage}
       resizeMode="cover"
     >
@@ -73,7 +73,7 @@ const Feedback: React.FC<FeedbackProps> = ({ navigation }) => {
       <View style={styles.menuContainer}>
         <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Home')}>
           <Image
-            source={require('../img/home.png')} // Imagem para o botão Home
+            source={require('../img/home.png')} 
             style={styles.menuIcon}
           />
          
@@ -81,7 +81,7 @@ const Feedback: React.FC<FeedbackProps> = ({ navigation }) => {
 
         <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('PaginaTeste1')}>
           <Image
-            source={require('../img/scan.png')} // Imagem para o botão Scan
+            source={require('../img/scan.png')} 
             style={styles.menuIcon}
           />
           
@@ -89,7 +89,7 @@ const Feedback: React.FC<FeedbackProps> = ({ navigation }) => {
 
         <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Pagina2')}>
           <Image
-            source={require('../img/busca.png')} // Imagem para o botão Busca
+            source={require('../img/busca.png')} 
             style={styles.menuIcon}
           />
           
@@ -97,7 +97,7 @@ const Feedback: React.FC<FeedbackProps> = ({ navigation }) => {
 
         <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Feed')}>
           <Image
-            source={require('../img/feed.png')} // Imagem para o botão Feedback
+            source={require('../img/feed.png')} 
             style={styles.menuIcon}
           />
          
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Cor semi-transparente para sobrepor o fundo e melhorar a legibilidade
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
   },
   titulo: {
     fontSize: 22,

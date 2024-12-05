@@ -34,7 +34,7 @@ export const buscarDocumentoPorId = async (collection: string, id: string) => {
 
 
 /**
- * Adiciona um documento em uma coleção no Firestore.
+ 
  * @param {string} colecao - Nome da coleção no Firestore.
  * @param {object} dados - Dados a serem salvos.
  */

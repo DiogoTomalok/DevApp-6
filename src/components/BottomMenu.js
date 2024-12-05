@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, Image, StyleSheet, ImageBackground } from 'react-native';
-import { buscarTodosDados } from '../services/FirestoreService'; // Certifique-se de que este caminho esteja correto
+import { buscarTodosDados } from '../services/FirestoreService'; 
 
 export default function BottomMenuWithList({ navigation }) {
   const [dados, setDados] = useState([]);
@@ -20,7 +20,7 @@ export default function BottomMenuWithList({ navigation }) {
 
   return (
     <ImageBackground
-      source={require('../img/img.jpg')} // Substitua pelo caminho correto da imagem
+      source={require('../img/img.jpg')} 
       style={styles.backgroundImage}
       resizeMode="cover"
     >

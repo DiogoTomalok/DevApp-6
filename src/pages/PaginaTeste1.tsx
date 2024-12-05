@@ -2,17 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, Alert, Platform, TouchableOpacity, ScrollView } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
-import { processImageWithModel } from '../services/processImage'; // Serviço de processamento de imagem
-import '@tensorflow/tfjs-react-native'; // Inicializa o TensorFlow.js para React Native
-import * as tf from '@tensorflow/tfjs'; // Importa o TensorFlow.js corretamente
-import { StackNavigationProp } from '@react-navigation/stack'; // Tipagem para navegação
+import { processImageWithModel } from '../services/processImage'; 
+import '@tensorflow/tfjs-react-native'; 
+import * as tf from '@tensorflow/tfjs'; 
+import { StackNavigationProp } from '@react-navigation/stack'; 
 
 type RootStackParamList = {
   Home: undefined;
   PaginaTeste1: undefined;
   Pagina2: undefined;
-  Feed: undefined; // Página de Feedback
-  // Adicione outros parâmetros de navegação, se necessário
+  Feed: undefined; 
 };
 
 type PaginaTeste1NavigationProp = StackNavigationProp<RootStackParamList, 'PaginaTeste1'>;
@@ -25,7 +24,7 @@ const PaginaTeste1: React.FC<PaginaTeste1Props> = ({ navigation }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [prediction, setPrediction] = useState<string | null>(null);
   const [isTfReady, setIsTfReady] = useState<boolean>(false);
-  const [activeMenuItem, setActiveMenuItem] = useState<string>('Teste'); // Estado para indicar qual item do menu está ativo
+  const [activeMenuItem, setActiveMenuItem] = useState<string>('Teste'); 
 
   // Verifica permissões de acesso a imagens
   useEffect(() => {
@@ -46,14 +45,14 @@ const PaginaTeste1: React.FC<PaginaTeste1Props> = ({ navigation }) => {
     checkPermissions();
   }, []);
 
-  // Inicializa o TensorFlow.js ao montar o componente
+
   useEffect(() => {
     const initializeTensorFlow = async () => {
       console.log('Inicializando TensorFlow...');
       try {
-        await tf.ready(); // Aguarda o TensorFlow.js estar pronto
+        await tf.ready();
         console.log('TensorFlow pronto');
-        setIsTfReady(true); // Atualiza o estado para indicar que o TensorFlow está pronto
+        setIsTfReady(true); 
       } catch (error) {
         console.error('Erro ao inicializar TensorFlow:', error);
       }
@@ -103,7 +102,7 @@ const PaginaTeste1: React.FC<PaginaTeste1Props> = ({ navigation }) => {
     }
   };
 
-  // Função para alterar o item do menu ativo
+  
   const handleMenuItemPress = (item: string) => {
     setActiveMenuItem(item);
     if (item === 'Home') {
@@ -113,7 +112,7 @@ const PaginaTeste1: React.FC<PaginaTeste1Props> = ({ navigation }) => {
     } else if (item === 'Pagina2') {
       navigation.navigate('Pagina2');
     } else if (item === 'Feed') {
-      navigation.navigate('Feed'); // Navega para a página de Feedback
+      navigation.navigate('Feed'); 
     }
   };
 
@@ -167,7 +166,7 @@ const PaginaTeste1: React.FC<PaginaTeste1Props> = ({ navigation }) => {
           
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.menuItem, activeMenuItem === 'Feed' && styles.activeMenuItem]} // Adiciona o item Feed
+          style={[styles.menuItem, activeMenuItem === 'Feed' && styles.activeMenuItem]} 
           onPress={() => handleMenuItemPress('Feed')}>
           <Image source={require('../img/feed.png')} style={styles.menuIcon} />
          
@@ -180,27 +179,27 @@ const PaginaTeste1: React.FC<PaginaTeste1Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff', // Removido o fundo de imagem
+    backgroundColor: '#fff', 
   },
   scrollContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    backgroundColor: 'rgba(34, 139, 34, 0.9)', // Verde floresta com transparência
+    backgroundColor: 'rgba(34, 139, 34, 0.9)', 
     top: 0,
-    bottom: 100, // Deixa espaço para o menu inferior
+    bottom: 100, 
     left: 0,
     right: 0,
   },
   loadedImage: {
     width: '100%',
     height: '100%',
-    resizeMode: 'contain', // A imagem carregada ocupa toda a tela
+    resizeMode: 'contain', 
     position: 'absolute',
     top: 0,
     left: 0,
-    zIndex: 1, // Garante que a imagem carregada fique acima do fundo
+    zIndex: 1, 
   },
   loadingImage: {
     width: 100,
@@ -208,9 +207,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '50%',
     left: '50%',
-    marginLeft: -50, // Centraliza horizontalmente
-    marginTop: -50, // Centraliza verticalmente
-    zIndex: 2, // Fica acima da imagem de fundo
+    marginLeft: -50, 
+    marginTop: -50, 
+    zIndex: 2, 
   },
   result: {
     fontSize: 18,
@@ -249,13 +248,13 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 10,
-    backgroundColor: 'rgba(34, 139, 34, 0.9)', // Verde floresta com transparência
+    backgroundColor: 'rgba(34, 139, 34, 0.9)', 
   },
   menuItem: {
     alignItems: 'center',
   },
   activeMenuItem: {
-    backgroundColor: '#ffcc00', // Cor de destaque para o item ativo
+    backgroundColor: '#ffcc00', 
     borderRadius: 5,
     padding: 5,
   },
