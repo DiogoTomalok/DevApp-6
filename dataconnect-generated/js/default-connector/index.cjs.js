@@ -5,5 +5,4 @@ const connectorConfig = {
   service: 'Projeto',
   location: 'southamerica-east1'
 };
-exports.connectorConfig = connectorConfig;
-
+exports.connectorConfig = connectorConfig;     #configuração do conector
