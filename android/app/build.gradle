@@ -4,6 +4,7 @@ plugins {
     id 'com.facebook.react'                // Aplica o plugin do React Native
     id 'com.google.gms.google-services'    // Aplica o plugin para Firebase
 }
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -133,4 +134,7 @@ dependencies {
     // Exemplo para Firebase Firestore:
     // implementation 'com.google.firebase:firebase-firestore'
 }
+
+// Aplica o script para a configuração dos ícones de fontes (react-native-vector-icons)
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 

@@ -1,4 +1,4 @@
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
 /**
  * Metro configuration
@@ -6,6 +6,20 @@ const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = {};
+module.exports = (async () => {
+  // Obtém a configuração padrão
+  const defaultConfig = await getDefaultConfig(__dirname);
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+  // Recupera as extensões de assets padrão
+  const { assetExts } = defaultConfig.resolver;
+
+  // Configuração personalizada adicionando `.bin` às extensões
+  const customConfig = {
+    resolver: {
+      assetExts: [...assetExts, 'bin'], // Adiciona suporte a arquivos `.bin`
+    },
+  };
+
+  // Combina a configuração padrão com a personalizada usando mergeConfig
+  return mergeConfig(defaultConfig, customConfig);
+})();

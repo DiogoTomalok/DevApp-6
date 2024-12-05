@@ -31,3 +31,19 @@ export const buscarDocumentoPorId = async (collection: string, id: string) => {
     throw error;
   }
 };
+
+
+/**
+ * Adiciona um documento em uma coleção no Firestore.
+ * @param {string} colecao - Nome da coleção no Firestore.
+ * @param {object} dados - Dados a serem salvos.
+ */
+export const adicionarDocumento = async (colecao: string, dados: object) => {
+  try {
+    const docRef = await firestore().collection(colecao).add(dados);
+    console.log('Documento adicionado com ID: ', docRef.id);
+  } catch (error) {
+    console.error('Erro ao adicionar documento: ', error);
+    throw error;
+  }
+};

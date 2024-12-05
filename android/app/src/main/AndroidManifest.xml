@@ -1,6 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Permissões necessárias para o funcionamento do aplicativo -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <!-- A partir do Android 11 (API 30) você pode precisar do MANAGE_EXTERNAL_STORAGE para acesso completo -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!-- Para Android 13 e superior, adicione permissões para imagens -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" android:required="true" />
 
     <application
       android:name=".MainApplication"
@@ -24,3 +33,4 @@
       </activity>
     </application>
 </manifest>
+

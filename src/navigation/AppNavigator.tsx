@@ -6,6 +6,7 @@ import BottomMenu from '../components/BottomMenu';
 import PaginaTeste1 from '../pages/PaginaTeste1';
 import Pagina2 from '../pages/Pagina2';
 import Paginadetail from '../pages/paginadetail'; // Nome corrigido para refletir "Paginadetail"
+import Feed from '../pages/feed';
 
 // Define a lista de parâmetros para as rotas
 type RootStackParamList = {
@@ -13,6 +14,7 @@ type RootStackParamList = {
   PaginaTeste1: undefined;
   Pagina2: undefined;
   Paginadetail: { id: string }; // Adicionando o parâmetro esperado
+  Feed: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -29,17 +31,22 @@ export default function AppNavigator() {
         <Stack.Screen 
           name="PaginaTeste1" 
           component={PaginaTeste1} 
-          options={{ title: 'Página de Teste 1' }} 
+          options={{ headerShown: false }} 
         />
         <Stack.Screen 
           name="Pagina2" 
           component={Pagina2} 
-          options={{ title: 'Página 2' }} 
+          options={{ headerShown: false }} 
         />
         <Stack.Screen 
           name="Paginadetail" 
           component={Paginadetail} 
-          options={{ title: 'Detalhes da Página' }} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="Feed" 
+          component={Feed} 
+          options={{ headerShown: false }} 
         />
       </Stack.Navigator>
     </NavigationContainer>

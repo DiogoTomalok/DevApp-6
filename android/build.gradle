@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        buildToolsVersion = "35.0.0"
+        buildToolsVersion = "35.0.0" // Versão que você deseja manter
         minSdkVersion = 24
         compileSdkVersion = 35
         targetSdkVersion = 34
@@ -12,11 +12,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        // Adiciona a versão do Gradle Plugin
+        classpath("com.android.tools.build:gradle:7.4.2")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("com.google.gms:google-services:4.3.15")
     }
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
